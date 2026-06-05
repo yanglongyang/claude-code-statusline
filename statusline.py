@@ -263,13 +263,10 @@ def main():
                 ctx_fmt = format_num(ctx_size)
                 token_segment += f" {GRAY}/ {ctx_fmt}{R}"
 
-            # Daily total + session cost
-            daily_total, cost = track_daily(total_in, total_out)
+            daily_total, _ = track_daily(total_in, total_out)
             if daily_total > 0:
                 daily_fmt = format_num(daily_total)
                 token_segment += f" {GRAY}| Today:{R}{WHITE}{daily_fmt}{R}"
-                if cost > 0:
-                    token_segment += f" {D}¥{cost:.3f}{R}"
     else:
         token_segment = f"{GRAY}No messages yet{R}"
 
